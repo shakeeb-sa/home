@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi-Format Link Converter</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="multi-format-link-converter.css">
+  </head>
+  <body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Homepage Navigation Bar -->
+    <header>
+      <nav role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+          <a href="#" class="logo" aria-label="Multi-Format Link Converter">
+            <i class="fas fa-code"></i>
+            Multi-Format Link Converter
+          </a>
+          
+          <!-- === DARK MODE TOGGLE BUTTON ADDED HERE === -->
+          <button id="darkModeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+          <!-- ========================================== -->
+
+          <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul id="nav-menu">
+            <li><a href="https://shakeeb-sa.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
+    <main id="main-content">
+      <!-- Page Title -->
+      <h1>Multi-Format Link Converter</h1>
+      
+      <!-- Shared Button group for actions -->
+      <div class="button-group" role="toolbar" aria-label="Global Actions">
+        <button id="makeLinkBtn" aria-label="Make Hyperlink">
+          <i class="fas fa-link"></i> Make Hyperlink
+        </button>
+        <button id="clearBtn" aria-label="Clear Active Editor">
+          <i class="fas fa-eraser"></i> Clear
+        </button>
+        <button id="previewBtn" aria-label="Preview Active Editor Links">
+          <i class="fas fa-eye"></i> Preview
+        </button>
+        <button id="downloadBtn" aria-label="Download Output from Active Editor">
+          <i class="fas fa-download"></i> Download
+        </button>
+        <div class="tooltip">
+          <button id="settingsBtn" aria-label="Settings">
+            <i class="fas fa-cog"></i> Settings
+          </button>
+          <span class="tooltiptext">Coming Soon</span>
+        </div>
+      </div>
+      
+      <!-- Status message -->
+      <div id="statusMessage"></div>
+
+      <!-- Container for the four converter sections -->
+      <div class="converter-container">
+
+        <!-- ===== SECTION 1 ===== -->
+        <section class="converter-section" id="section-1">
+          <div class="editor-wrapper">
+            <div id="editor-1" class="editor" contenteditable="true" aria-label="Rich Text Editor for Section 1" data-placeholder="Paste your content with links here..."></div>
+            <div class="char-counter" id="char-counter-1">0 characters</div>
+          </div>
+          <div id="output-section-1" class="output-section">
+            <h2 id="output-label-1">Converted Formats Section 1</h2>
+            <div class="output-tabs" role="tablist">
+              <button class="tab-button active" data-tab="html" role="tab" aria-selected="true">HTML</button>
+              <button class="tab-button" data-tab="markdown" role="tab" aria-selected="false">Markdown</button>
+              <button class="tab-button" data-tab="bbcode" role="tab" aria-selected="false">BBCode</button>
+              <button class="tab-button" data-tab="raw" role="tab" aria-selected="false">Raw Text</button>
+              <button class="tab-button" data-tab="refmd" role="tab" aria-selected="false">For Classifieds (Mostly)</button>
+              <button class="tab-button" data-tab="json" role="tab" aria-selected="false">JSON</button>
+              <button class="tab-button" data-tab="slack" role="tab" aria-selected="false">Slack</button>
+            </div>
+            <div class="output-container">
+              <div id="html-panel-1" class="tab-content active" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="markdown-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="bbcode-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="raw-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="refmd-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="json-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="slack-panel-1" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 2 ===== -->
+        <section class="converter-section" id="section-2">
+          <div class="editor-wrapper">
+            <div id="editor-2" class="editor" contenteditable="true" aria-label="Rich Text Editor for Section 2" data-placeholder="Paste your content with links here..."></div>
+            <div class="char-counter" id="char-counter-2">0 characters</div>
+          </div>
+          <div id="output-section-2" class="output-section">
+            <h2 id="output-label-2">Converted Formats Section 2</h2>
+            <div class="output-tabs" role="tablist">
+              <button class="tab-button active" data-tab="html" role="tab" aria-selected="true">HTML</button>
+              <button class="tab-button" data-tab="markdown" role="tab" aria-selected="false">Markdown</button>
+              <button class="tab-button" data-tab="bbcode" role="tab" aria-selected="false">BBCode</button>
+              <button class="tab-button" data-tab="raw" role="tab" aria-selected="false">Raw Text</button>
+              <button class="tab-button" data-tab="refmd" role="tab" aria-selected="false">For Classifieds (Mostly)</button>
+              <button class="tab-button" data-tab="json" role="tab" aria-selected="false">JSON</button>
+              <button class="tab-button" data-tab="slack" role="tab" aria-selected="false">Slack</button>
+            </div>
+            <div class="output-container">
+                <div id="html-panel-2" class="tab-content active" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="markdown-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="bbcode-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="raw-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="refmd-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="json-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="slack-panel-2" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 3 ===== -->
+        <section class="converter-section" id="section-3">
+          <div class="editor-wrapper">
+            <div id="editor-3" class="editor" contenteditable="true" aria-label="Rich Text Editor for Section 3" data-placeholder="Paste your content with links here..."></div>
+            <div class="char-counter" id="char-counter-3">0 characters</div>
+          </div>
+          <div id="output-section-3" class="output-section">
+            <h2 id="output-label-3">Converted Formats Section 3</h2>
+            <div class="output-tabs" role="tablist">
+              <button class="tab-button active" data-tab="html" role="tab" aria-selected="true">HTML</button>
+              <button class="tab-button" data-tab="markdown" role="tab" aria-selected="false">Markdown</button>
+              <button class="tab-button" data-tab="bbcode" role="tab" aria-selected="false">BBCode</button>
+              <button class="tab-button" data-tab="raw" role="tab" aria-selected="false">Raw Text</button>
+              <button class="tab-button" data-tab="refmd" role="tab" aria-selected="false">For Classifieds (Mostly)</button>
+              <button class="tab-button" data-tab="json" role="tab" aria-selected="false">JSON</button>
+              <button class="tab-button" data-tab="slack" role="tab" aria-selected="false">Slack</button>
+            </div>
+            <div class="output-container">
+              <div id="html-panel-3" class="tab-content active" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="markdown-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="bbcode-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="raw-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="refmd-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="json-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+              <div id="slack-panel-3" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4 ===== -->
+        <section class="converter-section" id="section-4">
+          <div class="editor-wrapper">
+            <div id="editor-4" class="editor" contenteditable="true" aria-label="Rich Text Editor for Section 4" data-placeholder="Paste your content with links here..."></div>
+            <div class="char-counter" id="char-counter-4">0 characters</div>
+          </div>
+          <div id="output-section-4" class="output-section">
+            <h2 id="output-label-4">Converted Formats Section 4</h2>
+            <div class="output-tabs" role="tablist">
+              <button class="tab-button active" data-tab="html" role="tab" aria-selected="true">HTML</button>
+              <button class="tab-button" data-tab="markdown" role="tab" aria-selected="false">Markdown</button>
+              <button class="tab-button" data-tab="bbcode" role="tab" aria-selected="false">BBCode</button>
+              <button class="tab-button" data-tab="raw" role="tab" aria-selected="false">Raw Text</button>
+              <button class="tab-button" data-tab="refmd" role="tab" aria-selected="false">For Classifieds (Mostly)</button>
+              <button class="tab-button" data-tab="json" role="tab" aria-selected="false">JSON</button>
+              <button class="tab-button" data-tab="slack" role="tab" aria-selected="false">Slack</button>
+            </div>
+            <div class="output-container">
+                <div id="html-panel-4" class="tab-content active" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="markdown-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="bbcode-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="raw-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="refmd-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="json-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+                <div id="slack-panel-4" class="tab-content" role="tabpanel"><pre role="textbox" tabindex="0">Click to copy</pre></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+    
+    <!-- Preview Modal -->
+    <div class="preview-modal" id="preview-modal">
+      <div class="preview-modal-content">
+        <button class="close-preview" id="close-preview" aria-label="Close preview">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3>Link Preview</h3>
+        <div id="preview-content-area"></div>
+      </div>
+    </div>
+    
+    <!-- JS file is linked here -->
+    <script src="multi-format-link-converter.js"></script>
+    
+     <!-- ==== ADD THIS FOOTER SECTION ==== -->
+    <footer id="footer">
+      <div class="copyright">
+        <p>&copy; <span id="currentYear"></span> Multi-Format Link Converter. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- ================================ -->
+  </body>
+</html>

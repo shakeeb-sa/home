@@ -1,0 +1,389 @@
+/* Removed :root and [data-theme="dark"] blocks */
+/* All variable references replaced with static values */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+line-height: 1.6;
+color: #333; /* text-color */
+background-color: #f0edcc; /* background-color */
+font-size: clamp(14px, 1.5vw, 16px);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+padding: 0;
+transition: background-color 0.3s, color 0.3s;
+}
+/* Responsive font scaling */
+@media (max-width: 768px) {
+body {
+font-size: clamp(13px, 1.2vw, 14px);
+}
+}
+/* Skip to main content link for accessibility */
+.skip-link {
+position: absolute;
+top: -40px;
+left: 0;
+background: #02343f; /* primary-color */
+color: #f0edcc; /* background-color */
+padding: 8px;
+z-index: 100;
+transition: top 0.3s;
+}
+.skip-link:focus {
+top: 0;
+}
+/* Sticky Navbar with enhanced styling */
+nav {
+position: sticky;
+top: 0;
+width: 100%;
+background-color: #02343f; /* primary-color */
+padding: 1rem 2rem;
+z-index: 999;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8px);
+transition: all 0.3s;
+}
+.nav-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+}
+.logo {
+font-size: 1.5rem;
+font-weight: 700;
+color: #f0edcc; /* background-color */
+text-decoration: none;
+display: flex;
+align-items: center;
+}
+.logo i {
+margin-right: 0.5rem;
+font-size: 1.8rem;
+}
+nav ul {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+list-style: none;
+}
+nav li {
+margin: 0 1rem;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+nav li:hover {
+transform: translateY(-3px);
+}
+nav a {
+color: #f0edcc; /* background-color */
+text-decoration: none;
+font-weight: 600;
+padding: 0.75rem 1rem;
+border-radius: 8px;
+transition: background-color 0.3s, color 0.3s;
+}
+nav a:hover,
+nav a:focus {
+background-color: #0a9396; /* accent-color */
+color: #02343f; /* primary-color */
+outline: none;
+}
+/* Mobile menu toggle */
+.menu-toggle {
+display: none;
+background: none;
+border: none;
+color: #f0edcc; /* background-color */
+font-size: 1.5rem;
+cursor: pointer;
+}
+/* Dark mode toggle */
+.theme-toggle {
+background: none;
+border: none;
+color: #f0edcc; /* background-color */
+font-size: 1.2rem;
+cursor: pointer;
+margin-left: 1rem;
+padding: 0.5rem;
+border-radius: 50%;
+transition: background-color 0.3s;
+}
+.theme-toggle:hover {
+background-color: rgba(255, 255, 255, 0.1);
+}
+/* Smaller screens */
+@media (max-width: 768px) {
+.menu-toggle {
+display: block;
+}
+nav ul {
+display: none;
+flex-direction: column;
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+background-color: #02343f; /* primary-color */
+padding: 1rem;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+nav ul.active {
+display: flex;
+}
+nav li {
+margin: 0.5rem 0;
+width: 100%;
+}
+nav a {
+display: block;
+padding: 0.75rem;
+text-align: center;
+}
+}
+/* Sections styling with enhanced appearance */
+section {
+padding: 3rem 1.5rem;
+max-width: 1200px;
+margin: 2rem auto;
+background-color: #ffffff; /* card-bg */
+border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+transition: background-color 0.3s, box-shadow 0.3s;
+}
+section:hover {
+box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+section h2 {
+text-align: center;
+margin-bottom: 2.5rem;
+font-size: 2rem;
+color: #02343f; /* primary-color */
+font-weight: 700;
+position: relative;
+padding-bottom: 1rem;
+}
+section h2::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 4px;
+background-color: #0a9396; /* accent-color */
+}
+/* SEO Tools & Resources Grid with enhanced cards */
+.tools-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+padding: 1rem 0;
+}
+.tool-card {
+background-color: #ffffff; /* card-bg */
+border-radius: 12px;
+padding: 2rem;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+transition: transform 0.3s, box-shadow 0.3s;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+position: relative;
+overflow: hidden;
+border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.tool-card::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 5px;
+background: linear-gradient(
+90deg,
+#005f73,
+#0a9396
+); /* secondary & accent colors */
+}
+.tool-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+.tool-icon {
+font-size: 3rem;
+color: #0a9396; /* accent-color */
+margin-bottom: 1.5rem;
+}
+.tool-title {
+color: #02343f; /* primary-color */
+font-weight: 600;
+font-size: 1.5rem;
+margin-bottom: 1rem;
+}
+/* Footer styles with enhanced appearance */
+footer {
+background-color: #02343f; /* primary-color */
+color: #f0edcc; /* background-color */
+padding: 3rem 1.5rem 1.5rem;
+margin-top: 3rem;
+}
+.footer-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+}
+.footer-section {
+flex: 1 1 250px;
+margin: 1rem;
+min-width: 250px;
+}
+.footer-section h3 {
+margin-bottom: 1.5rem;
+font-size: 1.3rem;
+font-weight: 700;
+position: relative;
+padding-bottom: 0.75rem;
+}
+.footer-section h3::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 50px;
+height: 3px;
+background-color: #0a9396; /* accent-color */
+}
+.footer-section p {
+margin-bottom: 0.75rem;
+display: flex;
+align-items: center;
+}
+.footer-section i {
+margin-right: 0.75rem;
+font-size: 1.2rem;
+color: #0a9396; /* accent-color */
+}
+.footer-section a {
+color: #f0edcc; /* background-color */
+text-decoration: none;
+transition: color 0.3s;
+}
+.footer-section a:hover {
+color: #0a9396; /* accent-color */
+text-decoration: underline;
+}
+.copyright {
+text-align: center;
+margin-top: 2rem;
+padding-top: 1.5rem;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+font-size: 0.9rem;
+width: 100%;
+}
+/* Back to top button */
+.back-to-top {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+background-color: #0a9396; /* accent-color */
+color: #02343f; /* primary-color */
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+cursor: pointer;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s;
+z-index: 99;
+}
+.back-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+.back-to-top:hover {
+background-color: #005f73; /* secondary-color */
+transform: translateY(-5px);
+}
+/* Animations */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.footer-container {
+flex-direction: column;
+align-items: center;
+}
+.footer-section {
+flex: 1 1 100%;
+margin: 1.5rem 0;
+text-align: center;
+}
+.footer-section h3::after {
+left: 50%;
+transform: translateX(-50%);
+}
+}
+.video-container {
+position: relative;
+padding-top: 40%; /* 16:9 aspect ratio */
+height: 0;
+overflow: hidden;
+}
+.video-iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: 0;
+}
+/* Style for the main container */
+.main-title-of-paging {
+text-align: center; /* Center align the content */
+margin: 30px 0; /* Vertical spacing around the title */
+}
+/* Style for the h2 element inside the container */
+.main-title-of-paging h2 {
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Choose a clean font */
+font-size: 30px; /* Make the title prominent */
+color: #f0edcc; /* Dark color for the text */
+letter-spacing: 1.2px; /* Slight spacing between letters */
+margin: 0; /* Remove default margin */
+padding-left: 150px; /* Padding around the text for better appearance */
+padding-right: 150px;
+padding-bottom: 5px;
+background-color: #02343f; /* Light background color */
+border-radius: 10px; /* Rounded corners */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+display: inline-block; /* Make it inline-block for styling control */
+transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+/* Optional hover effect for the title */
+.main-title-of-paging h2:hover {
+transform: scale(1.05); /* Slightly enlarge on hover */
+}

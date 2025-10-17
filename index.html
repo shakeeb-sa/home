@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A curated collection of free SEO and coding tools to enhance your productivity and skills." />
+    <title>Optimized SEO & Coding Tools</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="homepage.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="header">
+      <nav class="nav-container" role="navigation" aria-label="Main Navigation">
+        <!-- Logo on the left -->
+        <a href="#hero" class="logo" aria-label="Homepage">
+          <i class="fas fa-tools"></i>
+          <span>DevTools Hub</span>
+        </a>
+        
+        <!-- Wrapper for all right-aligned items -->
+        <div class="nav-right-group">
+          <ul id="nav-menu">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+
+        <!-- Hamburger menu (visible only on mobile) -->
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav-menu-mobile" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation Panel (initially hidden) -->
+    <div class="mobile-nav-panel" id="nav-menu-mobile">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <h1 id="hero-title">Powerful Tools for Developers & SEOs</h1>
+          <p>
+            A curated collection of free, efficient tools designed to streamline your workflow and boost your productivity.
+          </p>
+          <a href="#tools" class="hero-button">Explore Tools</a>
+        </div>
+      </section>
+      
+      <!-- Tools Section -->
+      <section id="tools" aria-labelledby="tools-heading">
+        <h2 id="tools-heading">Our Tools & Resources</h2>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fas fa-link"></i></div>
+            <h3 class="tool-title">URL Path Separator</h3>
+            <p class="tool-desc">Efficiently split and manage URL paths by separating each segment for clearer analysis and navigation.</p>
+            <a href="url-path-separator.html" target="_blank" rel="noopener noreferrer" class="btn">Try Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fas fa-exchange-alt"></i></div>
+            <h3 class="tool-title">Multi-Format Link Converter</h3>
+            <p class="tool-desc">Instantly convert links between various formats, including BBCode, HTML, and plain URLs.</p>
+            <a href="multi-format-link-converter.html" target="_blank" rel="noopener noreferrer" class="btn">Try Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fab fa-chrome"></i></div>
+            <h3 class="tool-title">Guestbook Extractor</h3>
+            <p class="tool-desc">A Chrome extension that automates backlink extraction from guestbooks and removes duplicates.</p>
+            <a href="guestbook-extractor-chrome-extension.html" target="_blank" rel="noopener noreferrer" class="btn">Download Now <i class="fas fa-download"></i></a>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3 class="tool-title">All About Coding</h3>
+            <p class="tool-desc">A comprehensive collection of coding tutorials and video resources curated from YouTube.</p>
+            <a href="all-about-coding.html" target="_blank" rel="noopener noreferrer" class="btn">Watch Now <i class="fas fa-play"></i></a>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon"><i class="fas fa-video"></i></div>
+            <h3 class="tool-title">Tools Tutorial</h3>
+            <p class="tool-desc">Watch our step-by-step video guides to master each tool on this page and maximize your productivity.</p>
+            <a href="tutorials.html" target="_blank" rel="noopener noreferrer" class="btn">Watch Now <i class="fas fa-play"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="footer-content">
+        <h3 class="footer-title">Get in Touch</h3>
+        <p class="footer-description">Feel free to reach out via email or connect on social media.</p>
+        <div class="social-links">
+          <a href="mailto:shakeeb.sa.ahmed@gmail.com" aria-label="Email Shakeeb Ahmed" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/shakeeb-sa/" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          <a href="https://pk.linkedin.com/in/shakeeb-ahmed-034093370" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://wa.me/923331234567" aria-label="Contact on WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; <span id="currentYear"></span> DevTools Hub. Created by Shakeeb Ahmed.</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    
+    <script src="homepage.js"></script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All About Coding</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="all-about-coding.css" />
+  </head>
+  <body>
+    <!-- Header and Navigation -->
+    <header>
+      <nav role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+          <a href="#" class="logo" aria-label="All About Coding Home">
+            <i class="fas fa-code"></i>
+            All About Coding
+          </a>
+          <!-- The ul is now empty but kept for the mobile menu structure -->
+          <ul id="nav-menu">
+          </ul>
+          <div class="nav-actions">
+            <!-- PORTFOLIO BUTTON MOVED AND STYLED HERE -->
+            <a href="https://shakeeb-sa.github.io/portfolio/" class="portfolio-btn" target="_blank" rel="noopener noreferrer">Portfolio</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <a href="#content" class="skip-to-content">Skip to content</a>
+
+    <!-- Category Quick Links -->
+    <nav class="category-nav" aria-label="Category Navigation">
+      <div class="category-nav-wrapper">
+        <button class="scroll-btn left" id="scroll-left-btn" aria-label="Scroll left">&lt;</button>
+        <ul class="category-list" id="categoryList">
+            <li><a href="#api-title" class="category-link">API</a></li>
+            <li><a href="#backend-title" class="category-link">Backend</a></li>
+            <li><a href="#cmd-title" class="category-link">CMD</a></li>
+            <li><a href="#cms-title" class="category-link">CMS</a></li>
+            <li><a href="#coding-title" class="category-link">Coding</a></li>
+            <li><a href="#css-title" class="category-link">CSS</a></li>
+            <li><a href="#cybersecurity-title" class="category-link">Cybersecurity</a></li>
+            <li><a href="#devops-title" class="category-link">DevOps</a></li>
+            <li><a href="#docker-title" class="category-link">Docker</a></li>
+            <li><a href="#dsa-title" class="category-link">DSA</a></li>
+            <li><a href="#frontend-title" class="category-link">Frontend</a></li>
+            <li><a href="#git-and-github-title" class="category-link">Git & GitHub</a></li>
+            <li><a href="#html-title" class="category-link">HTML</a></li>
+            <li><a href="#js-title" class="category-link">JavaScript</a></li>
+            <li><a href="#linux-title" class="category-link">Linux</a></li>
+            <li><a href="#mern-stack-title" class="category-link">MERN Stack</a></li>
+            <li><a href="#other-title" class="category-link">Other</a></li>
+            <li><a href="#web-development-title" class="category-link">Web Dev</a></li>
+            <li><a href="#wordpress-title" class="category-link">WordPress</a></li>
+        </ul>
+        <button class="scroll-btn right" id="scroll-right-btn" aria-label="Scroll right">&gt;</button>
+      </div>
+    </nav>
+
+
+    <!-- Main Content Area -->
+    <main id="content" class="container">
+
+      <!-- Dynamic Sections will be populated here -->
+      <section class="video-section" id="js-section">
+        <h2 class="section-title" id="js-title">JavaScript</h2>
+        <div class="controls">
+          <div class="filter-controls">
+            <button class="control-btn active" data-filter="all">All</button>
+            <button class="control-btn" data-filter="beginner">Beginner</button>
+            <button class="control-btn" data-filter="advanced">Advanced</button>
+            <button class="control-btn" data-filter="project">Projects</button>
+          </div>
+        </div>
+        <div class="video-grid" id="js-videos">
+          <!-- JS Videos will be dynamically inserted here -->
+        </div>
+      </section>
+
+      <section class="video-section" id="css-section">
+        <h2 class="section-title" id="css-title">CSS</h2>
+        <div class="controls">
+          <div class="filter-controls">
+            <button class="control-btn active" data-filter="all">All</button>
+            <button class="control-btn" data-filter="beginner">Beginner</button>
+            <button class="control-btn" data-filter="advanced">Advanced</button>
+            <button class="control-btn" data-filter="project">Projects</button>
+          </div>
+        </div>
+        <div class="video-grid" id="css-videos">
+          <!-- CSS Videos will be dynamically inserted here -->
+        </div>
+      </section>
+
+      <!-- Add more section containers as needed -->
+       <section class="video-section" id="html-section"><h2 class="section-title" id="html-title">HTML</h2><div class="video-grid" id="html-videos"></div></section>
+       <section class="video-section" id="other-section"><h2 class="section-title" id="other-title">Other</h2><div class="video-grid" id="other-videos"></div></section>
+       <section class="video-section" id="docker-section"><h2 class="section-title" id="docker-title">Docker</h2><div class="video-grid" id="docker-videos"></div></section>
+       <section class="video-section" id="mern-stack-section"><h2 class="section-title" id="mern-stack-title">MERN Stack</h2><div class="video-grid" id="mern-stack-videos"></div></section>
+       <section class="video-section" id="web-development-section"><h2 class="section-title" id="web-development-title">Web Development</h2><div class="video-grid" id="web-development-videos"></div></section>
+       <section class="video-section" id="syntax-and-coding-section"><h2 class="section-title" id="syntax-and-coding-title">Syntax and Coding</h2><div class="video-grid" id="syntax-and-coding-videos"></div></section>
+       <section class="video-section" id="devops-section"><h2 class="section-title" id="devops-title">DevOps</h2><div class="video-grid" id="devops-videos"></div></section>
+       <section class="video-section" id="api-section"><h2 class="section-title" id="api-title">API</h2><div class="video-grid" id="api-videos"></div></section>
+       <section class="video-section" id="git-and-github-section"><h2 class="section-title" id="git-and-github-title">Git & GitHub</h2><div class="video-grid" id="git-and-github-videos"></div></section>
+       <section class="video-section" id="linux-section"><h2 class="section-title" id="linux-title">Linux</h2><div class="video-grid" id="linux-videos"></div></section>
+       <section class="video-section" id="frontend-section"><h2 class="section-title" id="frontend-title">Frontend Dev</h2><div class="video-grid" id="frontend-videos"></div></section>
+       <section class="video-section" id="wordpress-section"><h2 class="section-title" id="wordpress-title">WordPress</h2><div class="video-grid" id="wordpress-videos"></div></section>
+       <section class="video-section" id="backend-section"><h2 class="section-title" id="backend-title">Backend</h2><div class="video-grid" id="backend-videos"></div></section>
+       <section class="video-section" id="dsa-section"><h2 class="section-title" id="dsa-title">Data Structures and Algorithms (DSA)</h2><div class="video-grid" id="dsa-videos"></div></section>
+       <section class="video-section" id="cybersecurity-section"><h2 class="section-title" id="cybersecurity-title">Cybersecurity</h2><div class="video-grid" id="cybersecurity-videos"></div></section>
+       <section class="video-section" id="coding-section"><h2 class="section-title" id="coding-title">Coding</h2><div class="video-grid" id="coding-videos"></div></section>
+       <section class="video-section" id="cms-section"><h2 class="section-title" id="cms-title">Content Management System (CMS)</h2><div class="video-grid" id="cms-videos"></div></section>
+       <section class="video-section" id="cmd-section"><h2 class="section-title" id="cmd-title">Command Prompt (CMD)</h2><div class="video-grid" id="cmd-videos"></div></section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container" role="contentinfo">
+          <div class="footer-section">
+            <h3>Contact Me</h3>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:shakeeb.sa.ahmed@gmail.com">shakeeb.sa.ahmed@gmail.com</a>
+            </p>
+            <p>
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/shakeeb-sa/" target="_blank" rel="noopener noreferrer">github.com/shakeeb-sa</a>
+            </p>
+            <p>
+              <i class="fab fa-linkedin"></i>
+              <a href="https://pk.linkedin.com/in/shakeeb-ahmed-034093370" target="_blank" rel="noopener noreferrer">linkedin.com/in/shakeeb-ahmed</a>
+            </p>
+          </div>
+           <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><i class="fas fa-arrow-right"></i> <a href="#js-title">JavaScript</a></p>
+                <p><i class="fas fa-arrow-right"></i> <a href="#css-title">CSS</a></p>
+                <p><i class="fas fa-arrow-right"></i> <a href="#html-title">HTML</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 All About Coding. Created by Shakeeb Ahmed.</p>
+        </div>
+      </footer>
+
+    <!-- Utilities -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="all-videos.js"></script>
+    <script src="all-about-coding.js"></script>
+  </body>
+</html>
+
