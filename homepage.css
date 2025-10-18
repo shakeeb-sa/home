@@ -42,26 +42,18 @@ body {
 
 /* 4. HEADER & NAVIGATION */
 .header { position: sticky; top: 0; width: 100%; background-color: var(--header-bg); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--card-border); transition: background-color 0.3s, border-color 0.3s; }
-.nav-container { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; }
+.nav-container { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; }
 .logo { font-size: 1.25rem; font-weight: 700; color: var(--accent-color); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
 
-.nav-right-group { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; }
+.nav-right-group { display: flex; align-items: center; gap: 1.5rem; }
 #nav-menu { display: flex; list-style: none; gap: 2rem; }
 #nav-menu a { color: var(--nav-link-color); text-decoration: none; font-weight: 500; padding: 0.5rem 0; position: relative; transition: color 0.3s; }
 #nav-menu a::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--accent-color); transition: width 0.3s ease-out; }
 #nav-menu a:hover, #nav-menu a:focus { color: var(--accent-color); }
 #nav-menu a:hover::after, #nav-menu a:focus::after { width: 100%; }
 
-.theme-toggle, .menu-toggle { background: none; border: none; color: var(--text-color); font-size: 1.25rem; cursor: pointer; padding: 0.5rem; border-radius: 50%; transition: color 0.3s, background-color 0.3s; }
-.theme-toggle:hover, .menu-toggle:hover { background-color: var(--card-border); }
-.menu-toggle { display: none; } /* Hidden on desktop by default */
-
-/* Mobile Navigation Panel */
-.mobile-nav-panel { display: none; position: fixed; top: 0; left: 100%; width: 100%; height: 100%; background-color: var(--background-color); z-index: 1001; transition: left 0.3s ease-in-out; }
-.mobile-nav-panel.active { left: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.mobile-nav-panel ul { list-style: none; text-align: center; }
-.mobile-nav-panel li { margin: 1.5rem 0; }
-.mobile-nav-panel a { color: var(--text-color); text-decoration: none; font-size: 1.75rem; font-weight: 500; }
+.theme-toggle { background: none; border: none; color: var(--text-color); font-size: 1.25rem; cursor: pointer; padding: 0.5rem; border-radius: 50%; transition: color 0.3s, background-color 0.3s; }
+.theme-toggle:hover { background-color: var(--card-border); }
 
 /* 5. (Other sections remain the same) */
 .hero { text-align: center; padding: 6rem 1.5rem; background-color: var(--primary-color); border-bottom: 1px solid var(--card-border); }
@@ -94,13 +86,34 @@ body {
 
 /* 8. MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-  #nav-menu { display: none; } /* Hide desktop links */
-  .menu-toggle { display: block; z-index: 1002; } /* Show hamburger */
-  .nav-right-group { gap: 0.5rem; } /* Reduce gap between theme/hamburger icons */
+  /* Reduce padding on the nav container for more horizontal space */
+  .nav-container {
+    padding: 1rem;
+  }
+  
+  /* Hide the text part of the logo on very small screens if needed */
+  .logo span {
+    font-size: 1rem; /* Make logo text slightly smaller */
+  }
+
+  /* Reduce the gap between the nav links and the theme toggle */
+  .nav-right-group {
+    gap: 1rem;
+  }
+  
+  /* Reduce the gap between individual nav links */
+  #nav-menu {
+    gap: 1rem;
+  }
+  
+  /* Make nav link text smaller to fit on one line */
+  #nav-menu a {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
-  .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
   .tool-card { padding: 1.5rem 1rem; }
   .tool-icon { font-size: 2rem; margin-bottom: 1rem; }
   .tool-title { font-size: 1rem; }
