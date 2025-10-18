@@ -1,48 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Get current year for footer
-  document.getElementById("currentYear").textContent = new Date().getFullYear();
-  // Mobile menu toggle
+  const htmlElement = document.documentElement;
   const menuToggle = document.getElementById("menuToggle");
   const navMenu = document.getElementById("nav-menu");
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = themeToggle.querySelector("i");
+  const backToTopButton = document.getElementById("backToTop");
+  const downloadButton = document.getElementById("downloadBtn");
+
+  // --- 1. Dynamic Copyright Year ---
+  document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+  // --- 2. Mobile Menu Toggle ---
   menuToggle.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
     navMenu.classList.toggle("active");
-    const isExpanded = navMenu.classList.contains("active");
-    menuToggle.setAttribute("aria-expanded", isExpanded);
+    menuToggle.setAttribute("aria-expanded", !isExpanded);
   });
-  // Close mobile menu when clicking on a link
-  const navLinks = navMenu.querySelectorAll("a");
-  navLinks.forEach((link) => {
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('#nav-menu a, .logo').forEach((link) => {
     link.addEventListener("click", () => {
-      navMenu.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
+      if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
     });
   });
-  // Theme toggle
-  const themeToggle = document.getElementById("themeToggle");
-  const htmlElement = document.documentElement;
-  const themeIcon = themeToggle.querySelector("i");
-  // Check for saved theme preference or default to light mode
-  const currentTheme = localStorage.getItem("theme") || "light";
-  htmlElement.setAttribute("data-theme", currentTheme);
-  updateThemeIcon(currentTheme);
+
+  // --- 3. Dark/Light Theme Toggle ---
+  const updateThemeIcon = (theme) => {
+    themeIcon.classList.toggle("fa-sun", theme === "dark");
+    themeIcon.classList.toggle("fa-moon", theme === "light");
+  };
+
+  const applyTheme = (theme) => {
+    htmlElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    updateThemeIcon(theme);
+  };
+
   themeToggle.addEventListener("click", () => {
-    const currentTheme = htmlElement.getAttribute("data-theme");
+    const currentTheme = htmlElement.getAttribute("data-theme") || "light";
     const newTheme = currentTheme === "light" ? "dark" : "light";
-    htmlElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    updateThemeIcon(newTheme);
+    applyTheme(newTheme);
   });
-  function updateThemeIcon(theme) {
-    if (theme === "dark") {
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
-    } else {
-      themeIcon.classList.remove("fa-sun");
-      themeIcon.classList.add("fa-moon");
-    }
+
+  // Load saved theme from localStorage or user preference
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else {
+    applyTheme(prefersDark ? 'dark' : 'light');
   }
-  // Back to top button
-  const backToTopButton = document.getElementById("backToTop");
+
+  // --- 4. "Back to Top" Button ---
   window.addEventListener("scroll", () => {
     if (window.pageYOffset > 300) {
       backToTopButton.classList.add("visible");
@@ -50,84 +63,36 @@ document.addEventListener("DOMContentLoaded", () => {
       backToTopButton.classList.remove("visible");
     }
   });
+
   backToTopButton.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   });
-  // Search functionality
-  const searchBar = document.getElementById("searchBar");
-  const searchBtn = document.getElementById("searchBtn");
-  const toolCards = document.querySelectorAll(".tool-card");
-  function performSearch() {
-    const searchTerm = searchBar.value.toLowerCase().trim();
-    toolCards.forEach((card) => {
-      const title = card.querySelector(".tool-title").textContent.toLowerCase();
-      const description = card
-        .querySelector(".tool-desc")
-        .textContent.toLowerCase();
-      if (title.includes(searchTerm) || description.includes(searchTerm)) {
-        card.style.display = "flex";
-      } else {
-        card.style.display = "none";
-      }
-    });
-    // Show all cards if search is empty
-    if (searchTerm === "") {
-      toolCards.forEach((card) => {
-        card.style.display = "flex";
+  
+  // --- 5. Download Button Functionality ---
+  if (downloadButton) {
+      downloadButton.addEventListener("click", () => {
+          window.open('https://mega.nz/file/XI0TCbBQ#4DWE-VCmCo8Qr05owNB27hZDHsk2F8aG0qfmJr_QqzY', '_blank', 'noopener,noreferrer');
       });
-    }
   }
-  searchBtn.addEventListener("click", performSearch);
-  searchBar.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-      performSearch();
-    }
-  });
-  // Tool buttons functionality
-  const buttons = [
-    {
-      id: "splitUrlBtn",
-      url: "https://shakeeb-sa.github.io/url-path-separator",
-    },
-    {
-      id: "convertLinksBtn",
-      url: "https://shakeeb-sa.github.io/multi-format-link-converter/",
-    },
-    {
-      id: "exploreCodingBtn",
-      url: "https://shakeeb-sa.github.io/all-about-coding/",
-    },
-  ];
-  buttons.forEach(({ id, url }) => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener("click", () => {
-        window.open(url, "_blank", "noopener,noreferrer");
-      });
-    }
-  });
-  // Smooth scrolling for navigation links
+
+  // --- 6. Smooth Scrolling for Anchor Links ---
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      if (targetId.length <= 1) return;
+
+      e.preventDefault();
       const targetElement = document.querySelector(targetId);
+      
       if (targetElement) {
-        const offsetTop = targetElement.offsetTop - 80;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
+        targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
       }
     });
   });
 });
-
-
-
-
-
